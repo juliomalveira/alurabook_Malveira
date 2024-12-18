@@ -1,0 +1,182 @@
+.cabecalho__menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+/* modifica a cor do menu quando clica nele*/
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer {
+    background-image: url("../img/Menu\ Aberto.svg");
+}
+
+.container__botao:checked~.container__rotulo {
+    background: var(--azul-degrade);
+}
+/* modifica a cor do menu quando clica nele - até aqui*/
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*para lista de itens não ficar aparecendo sem clicar */   
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem {
+    padding: 1em;
+}
+
+.lista-menu {
+    display: none; /*para lista de itens não ficar aparecendo sem clicar */   
+    position: absolute; /*para lista de itens não ficar aparecendo sem clicar */   
+    top: 100%;    /*para lista de itens não ficar aparecendo sem clicar */   
+    width: 60vw;
+}
+
+.container__botao:checked~.lista-menu { /*para lista de itens não ficar aparecendo sem clicar */
+    display: block; /*para lista de itens não ficar aparecendo sem clicar */
+}
+
+.lista-menu__titulo, 
+.lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text; /*para funcionar em outros tipos de navegadores*/
+    -webkit-text-fill-color: transparent;  /*para funcionar em outros tipos de navegadores*/
+    background-clip: text; /*aplica só onde tem textos*/
+    text-transform: uppercase; /*colocar o texto todo maiusculo*/
+}
+
+.container__botao {
+    display: none;
+}
+
+/* media 1024px a partir deste ponto*/
+.container__titulo { 
+    display: none;
+}
+
+.opcoes {
+    display: none;
+}
+
+/* media 1728px*/
+.container__texto { 
+    display: none;
+}
+
+/* media 1024px */
+@media screen and (min-width: 1024px) { 
+   
+    .container__titulo, 
+    .container__titulo--negrito {
+        font-family: var(--fonte-secundario);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-transparente {
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opcoes__botao:checked~.lista-menu {
+        display: block;
+        width: auto;        
+    }
+
+    .opcoes__botao { /*tirar a caixa input*/
+        display: none;
+    }
+
+    /*alterou menu quando clica para ficar fundo azul e fonte branca*/
+    .opcoes__botao:checked~.opcoes__rotulo>.opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);        
+    }
+
+    .opcoes__item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover>.lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+
+
+
+    /*alterou menu quando clica - fim da alteração*/
+}
+
+/* media 1728px a partir deste ponto*/
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto;
+    }
+
+    .container__texto { 
+        display: block;
+    }
+}
+
+
+
+
